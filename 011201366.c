@@ -1,14 +1,15 @@
 #include <stdio.h>
+#include <math.h>
 
-double sqrtFunction(double n)
+int SqrtFunction(int n)
 {
-    double low = 0, high = n;
+    int low = 0, high = n;
     if (n < 2)
         return n;
 
     while (low <= high)
     {
-        double mid = (low + high) / 2;
+        int mid = (low + high) / 2;
         if ((mid * mid) == n)
             return mid;
         else if ((mid * mid) > n)
@@ -16,23 +17,23 @@ double sqrtFunction(double n)
         else
             low = mid + 1;
     }
-    return high;
+    return fabs(high);
 }
 void print_sqrtFunction(double n)
 {
     double low = 0, high = n;
 
     if (n < 2)
-        printf("n is %.2lf", n);
+        printf("n is %.2lf\n", n);
 
     while (low <= high)
     {
-       double mid = (low + high) / 2;
-        printf("Low %.2lf\tHigh %.2lf\t", low, high);
-        printf("\tMid %2.lf\n", mid);
+        double mid = (low + high) / 2;
+        printf("Low %.2lf\tHigh %.2lf\t", fabs(low), fabs(high));
+        printf("Mid %2.lf\n", mid);
         if ((mid * mid) == n)
         {
-            printf("\tMid %2.lf\t ", mid);
+            printf("Mid %2.lf\t ", mid);
             break;
         }
         else if ((mid * mid) > n)
@@ -40,16 +41,16 @@ void print_sqrtFunction(double n)
         else
             low = mid + 1;
     }
-    printf("\nHigh = %.2lf \n",high);
+    printf("\nSqrt = %.2lf \n", high);
     return;
 }
 int main()
 {
-    double n;
+    int n;
     printf("Enter value : ");
-    scanf("%lf", &n);
+    scanf("%d", &n);
     print_sqrtFunction(n);
-    printf("Squre root of %.0lf is : %.2lf\n", n, sqrtFunction(n));
+    printf("\nSqure root of %d is : %d\n", n, SqrtFunction(n));
 
     return 0;
 }
