@@ -11,6 +11,91 @@ struct List
 };
 typedef struct List node;
 
+node *insert_head(node *head)
+{
+    node *nn;
+    nn = new node();
+    nn->next = NULL;
+    nn->prev = NULL;
+    printf("enter data: ");
+    scanf("%d", &nn->data);
+    if (head != NULL)
+    {
+        nn->next = head;
+        head->prev = nn;
+    }
+    head = nn;
+    return head;
+}
+
+node *insert_tail(node *head)
+{
+    if (head == NULL)
+    {
+        head = insert_head(head);
+    }
+    else
+    {
+        node *temp = head;
+
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+
+        node *newNode = new node();
+        printf("enter data: ");
+        scanf("%d", &newNode->data);
+        newNode->next = NULL;
+        newNode->prev = temp;
+
+        temp->next = newNode;
+    }
+    return head;
+}
+
+node *insert_at_N(node *head, int n)
+{
+    if (n == 1)
+    {
+        head = insert_head(head);
+    }
+    else
+    {
+        if (n >= 2 && n <= listSize(head) + 1)
+        {
+            if (n == listSize(head) + 1)
+            {
+                head = insert_tail(head);
+            }
+            else
+            {
+                node *temp;
+                int i;
+                temp = head;
+                for (i = 1; i <= n - 2; i++)
+                {
+                    temp = temp->next;
+                }
+                node *newNode = new node();
+                printf("enter data: ");
+                scanf("%d", &newNode->data);
+                // newNode->next = NULL;
+
+                newNode->next = temp->next;
+                newNode->prev = temp;
+                temp->next = newNode;
+                newNode->next->prev = newNode;
+            }
+        }
+        else
+        {
+            printf("invalid position...\n\n");
+        }
+    }
+    return head;
+}
+
 int main()
 {
     int ch, n, i;
@@ -22,122 +107,17 @@ int main()
     {
         if (ch == 1)
         {
-            if (head == NULL)
-            {
-                head = malloc(sizeof(node));
-                printf("enter data: ");
-                scanf("%d", &head->data);
-                head->next = NULL;
-                head->prev = NULL;
-            }
-            else
-            {
-                newNode = malloc(sizeof(node));
-                printf("enter data: ");
-                scanf("%d", &newNode->data);
-                newNode->next = head;
-                newNode->prev = NULL;
-                head->prev = newNode;
-                head = newNode;
-            }
+            head = insert_head(head);
         }
         else if (ch == 2)
         {
             printf("enter position: ");
             scanf("%d", &n);
-            if (n == 1)
-            {
-                if (head == NULL)
-                {
-                    head = malloc(sizeof(node));
-                    printf("enter data: ");
-                    scanf("%d", &head->data);
-                    head->next = NULL;
-                    head->prev = NULL;
-                }
-                else
-                {
-                    newNode = malloc(sizeof(node));
-                    printf("enter data: ");
-                    scanf("%d", &newNode->data);
-                    newNode->next = head;
-                    newNode->prev = NULL;
-                    head->prev = newNode;
-                    head = newNode;
-                }
-            }
-            else
-            {
-                if (n >= 2 && n <= listSize(head) + 1)
-                {
-                    if (n == listSize(head) + 1)
-                    {
-                        temp = head;
-
-                        while (temp->next != NULL)
-                        {
-                            temp = temp->next;
-                        }
-
-                        newNode = malloc(sizeof(node));
-                        printf("enter data: ");
-                        scanf("%d", &newNode->data);
-                        newNode->next = NULL;
-                        newNode->prev = temp;
-
-                        temp->next = newNode;
-                    }
-                    else
-                    {
-                        temp = head;
-                        for (i = 1; i <= n - 2; i++)
-                        {
-                            temp = temp->next;
-                        }
-                        newNode = malloc(sizeof(node));
-                        printf("enter data: ");
-                        scanf("%d", &newNode->data);
-                        // newNode->next = NULL;
-
-                        newNode->next = temp->next;
-                        newNode->prev = temp;
-                        temp->next = newNode;
-                        newNode->next->prev = newNode;
-                    }
-                }
-                else
-                {
-                    printf("invalid position...\n\n");
-                }
-            }
+            head = insert_at_N(head, n);
         }
         else if (ch == 3)
         {
-            if (head == NULL)
-            {
-                head = malloc(sizeof(node));
-                printf("enter data: ");
-                scanf("%d", &head->data);
-                head->next = NULL;
-                head->prev = NULL;
-            }
-            else
-            {
-                temp = head;
-
-                while (temp->next != NULL)
-                {
-                    temp = temp->next;
-                }
-
-                newNode = malloc(sizeof(node));
-                printf("enter data: ");
-                scanf("%d", &newNode->data);
-                newNode->next = NULL;
-                newNode->prev = temp;
-
-                temp->next = newNode;
-            }
+            head = insert_tail(head);
         }
         else if (ch == 4)
         {
@@ -260,7 +240,6 @@ int main()
         scanf("%d", &ch);
     }
 
-    // printf("hello\n");
     return 0;
 }
 
