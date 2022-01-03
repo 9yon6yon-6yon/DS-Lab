@@ -23,14 +23,14 @@ int main()
         {
             if(head == NULL)
             {
-                head = new node();
+                head =  malloc(sizeof(node));
                 printf("enter data: ");
                 scanf("%d",&head->data);
                 head->next = NULL;
             }
             else
             {
-                newNode = new node();
+                newNode =  malloc(sizeof(node));
                 printf("enter data: ");
                 scanf("%d",&newNode->data);
                 newNode->next = head;
@@ -45,14 +45,14 @@ int main()
             {
                 if(head == NULL)
                 {
-                    head = new node();
+                    head =  malloc(sizeof(node));
                     printf("enter data: ");
                     scanf("%d",&head->data);
                     head->next = NULL;
                 }
                 else
                 {
-                    newNode = new node();
+                    newNode =  malloc(sizeof(node));
                     printf("enter data: ");
                     scanf("%d",&newNode->data);
                     newNode->next = head;
@@ -68,7 +68,7 @@ int main()
                     {
                         temp = temp->next;
                     }
-                    newNode = new node();
+                    newNode = malloc(sizeof(node));
                     printf("enter data: ");
                     scanf("%d",&newNode->data);
                     //newNode->next = NULL;
@@ -86,7 +86,7 @@ int main()
         {
             if(head == NULL)
             {
-                head = new node();
+                head = malloc(sizeof(node));
                 printf("enter data: ");
                 scanf("%d",&head->data);
                 head->next = NULL;
@@ -100,7 +100,7 @@ int main()
                     temp = temp->next;
                 }
 
-                newNode = new node();
+                newNode =  malloc(sizeof(node));
                 printf("enter data: ");
                 scanf("%d",&newNode->data);
                 newNode->next = NULL;
