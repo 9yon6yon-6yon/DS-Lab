@@ -253,10 +253,6 @@ int main()
         scanf("%d",&ch);
     }
 
-
-
-
-    //printf("hello\n");
     return 0;
 }
 
@@ -333,14 +329,3 @@ node* insert_asc(node *head)
     }
     return head;
 }
-
-
-
-
-
-
-
-
-
-
-

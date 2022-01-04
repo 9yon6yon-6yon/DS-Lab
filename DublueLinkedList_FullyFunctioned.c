@@ -8,9 +8,41 @@ struct List
     struct List *prev;
 };
 typedef struct List node;
-void menu();
-void printList(struct List *temp);
-int listSize(struct List *temp);
+
+void menu()
+{
+    printf("1. Insert (head)\n");
+    printf("2. Insert (nth position)\n");
+    printf("3. Insert (tail)\n");
+    printf("4. Delete (head)\n");
+    printf("5. Delete (nth position)\n");
+    printf("6. Delete (tail)\n");
+    printf("7. Insert (Ascending order)\n");
+    printf("9. Print List\n");
+    printf("0. Exit\n");
+    printf("Enter your choice: ");
+}
+
+void printList(node *temp)
+{
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n\n");
+}
+
+int listSize(node *temp)
+{
+    int i = 0;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        i++;
+    }
+    return i;
+}
 
 node *insert_head(node *head)
 {
@@ -19,7 +51,7 @@ node *insert_head(node *head)
     nn->next = NULL;
     nn->prev = NULL;
     printf("Enter data: ");
-    scanf("%d", &nn->data);
+    scanf("%d", &nn->data); // inserting values again when ascending order function is working
     if (head != NULL)
     {
         nn->next = head;
@@ -44,8 +76,8 @@ node *insert_tail(node *head)
             temp = temp->next;
         }
         node *newNode = malloc(sizeof(node));
-        printf("Enter data: ");
-        scanf("%d", &newNode->data);
+        printf("Enter data : ");
+        scanf("%d", &newNode->data); // inserting values again when ascending order function is working
         newNode->next = NULL;
         newNode->prev = temp;
 
@@ -80,7 +112,6 @@ node *insert_at_N(node *head, int n)
                 node *newNode = malloc(sizeof(node));
                 printf("Enter data: ");
                 scanf("%d", &newNode->data);
-
                 newNode->next = temp->next;
                 newNode->prev = temp;
                 temp->next = newNode;
@@ -192,6 +223,39 @@ node *delete_tail(node *head)
     return head;
 }
 
+node *insert_ascending(node *head)
+{
+    node *temp = head, *nn;
+
+    if (head == NULL)
+        head = insert_head(head);
+    else
+    {
+        nn = malloc(sizeof(node));
+        nn->next = NULL;
+        nn->prev = NULL;
+        printf("Enter data: ");
+        scanf("%d", &nn->data);
+
+        while (temp->data <= nn->data && temp->next != NULL)
+            temp = temp->next;
+        if (temp->next == NULL)
+            head = insert_tail(head); // inserting values again when ascending order function is working
+        else if (temp->prev == NULL)
+            head = insert_head(head); // inserting values again when ascending order function is working
+        else
+        {
+            node *pr = temp->prev;
+            nn->next = temp;
+            nn->prev = pr;
+
+            temp->prev = nn;
+            pr->next = nn;
+        }
+    }
+    return head;
+}
+
 int main()
 {
     int ch, n, i;
@@ -247,6 +311,10 @@ int main()
         {
             printList(head);
         }
+        else if (ch == 7)
+        {
+            head = insert_ascending(head);
+        }
         else
         {
             printf("Invalid choice. please try again...\n\n");
@@ -256,38 +324,4 @@ int main()
     }
 
     return 0;
-}
-
-void menu()
-{
-    printf("1. Insert (head)\n");
-    printf("2. Insert (nth position)\n");
-    printf("3. Insert (tail)\n");
-    printf("4. Delete (head)\n");
-    printf("5. Delete (nth position)\n");
-    printf("6. Delete (tail)\n");
-    printf("9. Print List\n");
-    printf("0. Exit\n");
-    printf("Enter your choice: ");
-}
-
-void printList(node *temp)
-{
-    while (temp != NULL)
-    {
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }
-    printf("\n\n");
-}
-
-int listSize(node *temp)
-{
-    int i = 0;
-    while (temp != NULL)
-    {
-        temp = temp->next;
-        i++;
-    }
-    return i;
 }
