@@ -240,15 +240,26 @@ node *insert_ascending(node *head)
         while (temp->data <= nn->data && temp->next != NULL)
             temp = temp->next;
         if (temp->next == NULL)
-            head = insert_tail(head); // inserting values again when ascending order function is working
+        {
+            nn->next = NULL;
+            nn->prev = temp;
+            temp->next = nn;
+        }
+        // head = insert_tail(head); // inserting values again when ascending order function is working
         else if (temp->prev == NULL)
-            head = insert_head(head); // inserting values again when ascending order function is working
+        {
+            if (head != NULL)
+            {
+                nn->next = head;
+                head->prev = nn;
+            }
+            head = nn;
+        } // head = insert_head(head); // inserting values again when ascending order function is working
         else
         {
             node *pr = temp->prev;
             nn->next = temp;
             nn->prev = pr;
-
             temp->prev = nn;
             pr->next = nn;
         }
