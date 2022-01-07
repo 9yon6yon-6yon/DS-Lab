@@ -16,7 +16,6 @@ void menu()
     printf("7. Print Tree(Pre-Order)\n");
     printf("8. Print Tree(In-Order)\n");
     printf("9. Print Tree(Post-Order)\n");
-
     printf("0. Exit\n");
     printf("Enter your choice: ");
 }
