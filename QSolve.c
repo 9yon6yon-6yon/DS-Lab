@@ -222,3 +222,4 @@ For example, if N = 3, the function should delete 3rd node, 6th node, 9th node a
 The node pointed by head is the 1st node. Your implementation should be as efficient as possible.
 
 Now subtract the smallest integer from each value of the linked list and then show all elements.*/
+//Lab class test
