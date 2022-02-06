@@ -55,7 +55,7 @@ void selection_sort(int data[],int n)
 
 }
 
-void bubble_sort(int data[],int n)
+void bubble_sort(int data[],int n)//bubble sort
 {
     int i,j,temp,flag;
     for(i=0; i<n; i++)
