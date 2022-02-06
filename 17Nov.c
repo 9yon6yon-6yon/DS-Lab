@@ -16,13 +16,8 @@ int main()
     srand(time(NULL));
     for(i=0; i<n; i++)
     {
-        //scanf("%d",&data[i]);
-        data[i] = (rand()%100) + 1;
+        data[i] = (rand()%100) + 1;//inserting random value in array using rand
     }
-
-//    printf("data: ");
-//    for(i=0; i<n; i++)
-//        printf("%d ",data[i]);
 
     printf("\n\nenter search value: ");
     scanf("%d",&key);
@@ -90,7 +85,7 @@ void binarySearch(int data[], int n, int key)
 
 void insertion_sort(int data[],int n)
 {
-    int i,j,temp,key;
+    int i,j,key;
     for(i = 1; i<n; i++)
     {
         key = data[i];
