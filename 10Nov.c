@@ -1,29 +1,27 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-void selection_Sort(int data[],int n)
+void selection_Sort(int data[], int n)
 {
-    int i,j,min_index,temp;
-    for(i=0; i<n; i++)
+    int i, j, min_index, temp;
+    for (i = 0; i < n; i++)
     {
-        min_index =i;
-        for(j=i; j<n; j++)
+        min_index = i;
+        for (j = i; j < n; j++)
         {
-            if(data[min_index]>data[j])
+            if (data[min_index] > data[j])
             {
-                min_index=j;
+                min_index = j;
             }
-
         }
-        if(min_index!= i)
+        if (min_index != i)
         {
             temp = data[min_index];
-            data[min_index] = data [i];
+            data[min_index] = data[i];
             data[i] = temp;
         }
     }
-
 }
 void insertion_Sort(int data[], int n)
 {
@@ -44,49 +42,27 @@ void insertion_Sort(int data[], int n)
 
 int main()
 {
-    int n,i,j;
-    scanf("%d",&n);
+    int n, i, j;
+    scanf("%d", &n);
     int array[50];
     srand(time(NULL));
 
     printf("Before Sorting\n");
-    for(i=0; i<n; i++)
-        array[i]=(rand()%100)+1;
-    for(i=0; i<n; i++)
-        printf("%d,",array[i]);
-
-    // selection_Sort(array,n);
-    insertion_Sort(array,n);
+    for (i = 0; i < n; i++)
+        array[i] = (rand() % 100) + 1;
+    for (i = 0; i < n; i++)
+        printf("%d,", array[i]);
+    
+    insertion_Sort(array, n);//sorting using insertion sort
     printf("\n\nAfter sorting\n");
-    for(i=0; i<n; i++)
-        printf("%d,",array[i]);
+    for (i = 0; i < n; i++)
+        printf("%d,", array[i]);
+    selection_Sort(array, n);//sorting using selection sort
+    printf("\n\nAfter sorting\n");
+    for (i = 0; i < n; i++)
+        printf("%d,", array[i]);
 
-
-
-printf("\n\nA \n");
-
-
-
-
-
-    //  int arr[n];
-    // for(int i =0; i<n; i++)
-    // {
-    //   scanf("%d",&arr[i]);
-    // }
-    // for(int i=0; i<n; i++)
-    // {
-    //  printf("%d ",arr[i]);
-    //   if(max<arr[i])
-    //        max= arr[i];
-    //   if(min>arr[i])
-    //        min = arr[i];
-    //}
-    // int max = arr[0];
-    // int min = arr[0];
-    //  printf("\nMax = %d \nMin = %d",max,min);
-
-
+    printf("\n\n\n");
 
     return 0;
 }
