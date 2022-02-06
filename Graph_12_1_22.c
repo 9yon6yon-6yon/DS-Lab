@@ -1,7 +1,7 @@
 #include <stdio.h>
 // in a tree there will be no loop,direction and multiple edges
 // all trees are graph but all graphs are not tree
-/*void Visit(int g[100][100], int visited[], int n)
+void Visit(int g[100][100], int visited[], int n)
 {
     printf("%c visited \n", 65 + n);
     visited[n] = 1;
@@ -16,7 +16,7 @@ void dfs(int g[100][100], int visited[], int k, int n)
             dfs(g, visited, i, n);
     }
 }
-*/
+
 int main()
 {
     int n, i, j, visited[100];
@@ -41,7 +41,7 @@ int main()
         }
         printf("\n");
     }
-   // dfs(arr, visited, 0, n);
+    dfs(arr, visited, 0, n);
 
     return 0;
 }
