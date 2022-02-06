@@ -51,7 +51,7 @@ node *insert_head(node *head)
     nn->next = NULL;
     nn->prev = NULL;
     printf("Enter data: ");
-    scanf("%d", &nn->data); // inserting values again when ascending order function is working
+    scanf("%d", &nn->data); 
     if (head != NULL)
     {
         nn->next = head;
@@ -77,7 +77,7 @@ node *insert_tail(node *head)
         }
         node *newNode = malloc(sizeof(node));
         printf("Enter data : ");
-        scanf("%d", &newNode->data); // inserting values again when ascending order function is working
+        scanf("%d", &newNode->data);
         newNode->next = NULL;
         newNode->prev = temp;
 
