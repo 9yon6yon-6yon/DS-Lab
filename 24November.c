@@ -12,7 +12,7 @@ void menu()
 void Push(int arr[],int n,int top)
 {
     printf("\t\t\tEnter the value to push :");
-    scanf("%d",&arr[top]);
+    scanf("%d",&arr[top]);//entering value using scanf
 
 }
 void Pop(int arr[],int n,int top)
