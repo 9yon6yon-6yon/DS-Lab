@@ -20,5 +20,5 @@ int main()
             hi=mid-1;
     }
 
-    return 0;
+    return 0;//bst to find sqrt value
 }
