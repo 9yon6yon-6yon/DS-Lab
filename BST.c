@@ -19,7 +19,7 @@ void menu()
     printf("0. Exit\n");
     printf("Enter your choice: ");
 }
-
+//testing
 node *insert(node *root, int x)
 {
     if (root == NULL)
