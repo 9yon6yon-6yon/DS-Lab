@@ -1,4 +1,3 @@
-/*
 #include <stdio.h>
 int main()
 {
@@ -38,8 +37,7 @@ int main()
     //displaying the total weight of all items 
     printf("Sum is = %d\t",sum_of_weight);
     return 0;
-}
-1*/
+}//1
 /*
 // A C Program to demonstrate adjacency list
 // representation of graphs
