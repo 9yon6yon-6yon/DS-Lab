@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int SqrtFunction(int n)
+int SqrtFunction(int n)//squre function
 {
     int low = 0, high = n;
     if (n < 2)
@@ -19,7 +19,7 @@ int SqrtFunction(int n)
     }
     return fabs(high);
 }
-void print_sqrtFunction(double n)
+void print_sqrtFunction(double n)//squre function using bst(Binary search tree)
 {
     double low = 0, high = n;
 
