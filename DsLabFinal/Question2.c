@@ -12,18 +12,18 @@ typedef struct List node;
 
 void menu()
 {
-    printf("1. Insert (head)\n");
-    printf("2. Insert (nth position)\n");
-    printf("3. Insert (tail)\n");
-    printf("4. Delete (head)\n");
-    printf("5. Delete (nth position)\n");
-    printf("6. Delete (tail)\n");
-    printf("7. Insert (Ascending order)\n");
-    printf("9. Print List\n");
-    printf("10. UNDO\n");
-    printf("11. Redo\n");
-    printf("0. Exit\n");
-    printf("Enter your choice: ");
+    printf("\n\t\t1. Insert (head)\n");
+    printf("\t\t2. Insert (nth position)\n");
+    printf("\t\t3. Insert (tail)\n");
+    printf("\t\t4. Delete (head)\n");
+    printf("\t\t5. Delete (nth position)\n");
+    printf("\t\t6. Delete (tail)\n");
+    printf("\t\t7. Insert (Ascending order)\n");
+    printf("\t\t9. Print List\n");
+    printf("\t\t10. UNDO\n");
+    printf("\t\t11. Redo\n");
+    printf("\t\t0. Exit\n");
+    printf("\t\tEnter your choice: ");
 }
 
 node *insert_head(node *head, int val)

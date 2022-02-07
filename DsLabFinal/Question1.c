@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-int arr[15], nt = 0, position = -1, flag = 0;
+int arr[100], nt = 0, position = -1, flag = 0, flagOfRoot = 0;
 struct BST
 {
     int data;
@@ -49,7 +49,6 @@ void menu()
     printf("3. Print Tree(In-Order)\n");
     printf("4. Delete all (div by M)\n");
     printf("5. Substart smallest\n");
-  
     printf("0. Exit\n");
     printf("Enter your choice: ");
 }
@@ -237,8 +236,6 @@ int main()
                     head = insert_head(head, arr[i]);
                 }
             }
-            else
-                break;
             flag = 1;
         }
         else if (choice == 4)
@@ -247,6 +244,12 @@ int main()
             int s;
             scanf("%d", &s);
             head = delete_all_Nth_position(head, s);
+            printList(head);
+            for (int i = position; i >= 0; i--)
+            {
+                if (i % s == 0)
+                    root = delete (root, arr[i]);
+            }
 
             printf("\n");
         }
@@ -271,6 +274,9 @@ int main()
                 temp = temp->next;
             }
             temp = head;
+
+            printList(head);
+
             printf("\n");
         }
 
