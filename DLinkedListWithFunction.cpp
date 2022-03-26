@@ -265,7 +265,6 @@ void printList(node *temp)
     }
     printf("\n\n");
 }
-
 int listSize(node *temp)
 {
     int i = 0;
